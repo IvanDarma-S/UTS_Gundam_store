@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:email_validator/email_validator.dart';
+import 'package:apps_marketplace_integration_backend/features/auth/presentation/widgets/auth_header.dart';
+import 'package:apps_marketplace_integration_backend/features/auth/presentation/widgets/custom_button.dart';
+import 'package:apps_marketplace_integration_backend/features/auth/presentation/widgets/custom_text_field.dart';
+import 'package:apps_marketplace_integration_backend/features/auth/presentation/widgets/loading_overlay.dart';
+import 'package:apps_marketplace_integration_backend/features/auth/presentation/providers/auth_provider.dart';
+import 'package:apps_marketplace_integration_backend/core/routes/app_router.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
