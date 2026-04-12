@@ -3,7 +3,7 @@ import 'package:apps_marketplace_integration_backend/features/auth/presentation/
 import 'package:apps_marketplace_integration_backend/features/auth/presentation/pages/register_page.dart';
 import 'package:apps_marketplace_integration_backend/features/auth/presentation/pages/verify_email_page.dart';
 import 'package:apps_marketplace_integration_backend/features/dashboard/presentation/pages/dashboard_page.dart';
-import 'package:apps_marketplace_integration_backend/features/splash/presentation/pages/splash_page.dart';
+import 'package:apps_marketplace_integration_backend/features/dashboard/presentation/pages/splash_page.dart';
 import 'package:apps_marketplace_integration_backend/core/widgets/auth_guard.dart';
 
 class AppRouter {
