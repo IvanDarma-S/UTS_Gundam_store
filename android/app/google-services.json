@@ -12,7 +12,12 @@
           "package_name": "com.example.apps_marketplace_integration_backend"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "467349579093-3co9f1iaqa0lc707c3hmclbapillk182.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyC8tmb4lI07Lv72IwYfmKHR1s6L6pGu1mc"
@@ -20,7 +25,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467349579093-3co9f1iaqa0lc707c3hmclbapillk182.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     },
@@ -31,7 +41,12 @@
           "package_name": "golag.firebase"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "467349579093-3co9f1iaqa0lc707c3hmclbapillk182.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyC8tmb4lI07Lv72IwYfmKHR1s6L6pGu1mc"
@@ -39,7 +54,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467349579093-3co9f1iaqa0lc707c3hmclbapillk182.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

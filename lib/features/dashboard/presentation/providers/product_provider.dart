@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:apps_marketplace_integration_backend/core/services/dio_client.dart';
 import 'package:apps_marketplace_integration_backend/core/constants/api_constants.dart';
 import 'package:apps_marketplace_integration_backend/features/dashboard/data/models/product_model.dart';
+
+import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 enum ProductStatus { initial, loading, loaded, error }
 
@@ -14,6 +16,9 @@ class ProductProvider extends ChangeNotifier {
   List<ProductModel> get products => _products;
   String? get error => _error;
 
+  bool get isLoading => _status == ProductStatus.loading;
+
+  // Fetch products — token otomatis disertakan oleh DioClient interceptor
   Future<void> fetchProducts() async {
     _status = ProductStatus.loading;
     notifyListeners();
@@ -21,13 +26,12 @@ class ProductProvider extends ChangeNotifier {
     try {
       final response = await DioClient.instance.get(ApiConstants.products);
 
+      // Backend response: { "data": [ {...}, {...} ] }
       final List<dynamic> data = response.data['data'];
-
       _products = data.map((e) => ProductModel.fromJson(e)).toList();
-
       _status = ProductStatus.loaded;
-    } catch (e) {
-      _error = "Gagal load produk";
+    } on DioException catch (e) {
+      _error = e.response?.data['message'] ?? 'Gagal memuat produk';
       _status = ProductStatus.error;
     }
 

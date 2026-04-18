@@ -73,4 +73,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'golang-firebase-dae7e.firebasestorage.app',
     measurementId: 'G-NHME6VVN7N',
   );
+
 }
