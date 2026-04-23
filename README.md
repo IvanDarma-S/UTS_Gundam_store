@@ -36,7 +36,7 @@ Aplikasi ini menggunakan **Golang** sebagai mesin _backend_ untuk mengelola tran
 
 - **Language:** Golang
 - **API Style:** REST API
-- **Database:** [Isi Database Kamu, misal: MySQL/PostgreSQL]
+- **Database:** [MySQL/PostgreSQL]
 
 ---
 
