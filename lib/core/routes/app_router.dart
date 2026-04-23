@@ -1,12 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:apps_marketplace_integration_backend/core/constants/api_colors.dart';
-import 'package:apps_marketplace_integration_backend/main.dart';
+import 'package:apps_marketplace_integration_backend/features/auth/presentation/providers/auth_provider.dart';
 import 'package:apps_marketplace_integration_backend/features/auth/presentation/pages/login_page.dart';
 import 'package:apps_marketplace_integration_backend/features/auth/presentation/pages/register_page.dart';
 import 'package:apps_marketplace_integration_backend/features/auth/presentation/pages/verify_email_page.dart';
 import 'package:apps_marketplace_integration_backend/features/dashboard/presentation/pages/dashboard_page.dart';
-import 'package:apps_marketplace_integration_backend/features/dashboard/presentation/pages/splash_page.dart';
-import 'package:apps_marketplace_integration_backend/features/dashboard/presentation/pages/dashboard_page.dart';
+import 'package:apps_marketplace_integration_backend/main.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AppRouter {
   static const String splash = '/';
@@ -22,4 +21,26 @@ class AppRouter {
     verifyEmail: (_) => const VerifyEmailPage(),
     dashboard: (_) => const AuthGuard(child: DashboardPage()),
   };
+}
+
+class AuthGuard extends StatelessWidget {
+  final Widget child;
+  const AuthGuard({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    // Monitor status login user
+    final status = context.watch<AuthProvider>().status;
+
+    return switch (status) {
+      AuthStatus.authenticated => child, // Jika login, boleh masuk
+      AuthStatus.emailNotVerified => const Scaffold(
+        body: Center(child: Text("Verifikasi Email Dulu")),
+      ),
+      _ => const LoginPage(),
+      // Scaffold(
+      //   body: Center(child: Text("Silakan Login")),
+      //), // Jika logout, lempar ke Login
+    };
+  }
 }

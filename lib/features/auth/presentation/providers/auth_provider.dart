@@ -1,9 +1,9 @@
+import 'package:apps_marketplace_integration_backend/core/constants/api_constants.dart';
+import 'package:apps_marketplace_integration_backend/core/services/dio_client.dart';
+import 'package:apps_marketplace_integration_backend/core/services/secure_storage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:apps_marketplace_integration_backend/core/services/dio_client.dart';
-import 'package:apps_marketplace_integration_backend/core/services/secure_storage.dart';
-import 'package:apps_marketplace_integration_backend/core/constants/api_constants.dart';
 
 enum AuthStatus {
   initial, // Belum ada action
@@ -23,19 +23,15 @@ class AuthProvider extends ChangeNotifier {
   User? _firebaseUser;
   String? _backendToken; // Token dari backend (bukan Firebase token)
   String? _errorMessage;
-  // WAJIB DITAMBAHKAN: Karena kamu memanggilnya di register() dan loginAfterEmailVerification()
   String? _tempEmail;
   String? _tempPassword;
 
-  // ─── Getters ─────────────────────────────────────────────
   AuthStatus get status => _status;
   User? get firebaseUser => _firebaseUser;
   String? get backendToken => _backendToken;
   String? get errorMessage => _errorMessage;
   bool get isLoading => _status == AuthStatus.loading;
 
-  // ─── Register dengan Email & Password ────────────────────
-  // #Alur Register
   Future<bool> register({name, email, password}) async {
     _setLoading(); // status = loading, notifyListeners()
 
@@ -60,7 +56,6 @@ class AuthProvider extends ChangeNotifier {
     return true;
   }
 
-  //#Alur Konfirmasi Email
   Future<bool> loginAfterEmailVerification() async {
     _setLoading();
 
@@ -87,7 +82,6 @@ class AuthProvider extends ChangeNotifier {
     return await _verifyTokenToBackend();
   }
 
-  // #Verify Token ke Backend
   Future<bool> _verifyTokenToBackend() async {
     // Ambil Firebase ID Token (expired tiap 1 jam)
     final firebaseToken = await _firebaseUser?.getIdToken(true);
@@ -110,7 +104,6 @@ class AuthProvider extends ChangeNotifier {
     return true;
   }
 
-  // #Login With Email
   // ─── Login dengan Email & Password ───────────────────────
   Future<bool> loginWithEmail({
     required String email,
@@ -139,7 +132,6 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  // #Login With Google
   // ─── Login dengan Google ──────────────────────────────────
   Future<bool> loginWithGoogle() async {
     _setLoading();
@@ -166,7 +158,6 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  // #Resend verification email
   // ─── Kirim ulang email verifikasi ────────────────────────
   Future<void> resendVerificationEmail() async {
     await _firebaseUser?.sendEmailVerification();
@@ -183,7 +174,6 @@ class AuthProvider extends ChangeNotifier {
     return false;
   }
 
-  // #Logout
   // ─── Logout ───────────────────────────────────────────────
   Future<void> logout() async {
     await _auth.signOut();
