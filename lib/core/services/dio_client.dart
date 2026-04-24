@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:apps_marketplace_integration_backend/core/constants/api_constants.dart';
 import 'package:apps_marketplace_integration_backend/core/services/secure_storage.dart';
 
