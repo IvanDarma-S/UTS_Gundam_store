@@ -49,6 +49,10 @@ dependencies:
   email_validator: ^3.0.0
   flutter_svg: ^2.2.4
 
+  # URL launcher for opening external links (e.g., privacy policy, terms of service)
+  app_links: ^6.3.2
+  url_launcher: ^6.3.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
