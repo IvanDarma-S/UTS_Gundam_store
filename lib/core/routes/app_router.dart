@@ -6,11 +6,11 @@ import 'package:apps_marketplace_integration_backend/features/auth/presentation/
 import 'package:apps_marketplace_integration_backend/features/auth/presentation/providers/auth_provider.dart';
 import 'package:apps_marketplace_integration_backend/features/cart/presentation/pages/cart_page.dart';
 import 'package:apps_marketplace_integration_backend/features/dashboard/presentation/pages/dashboard_page.dart';
-// import 'package:apps_marketplace_integration_backend/features/order/data/models/order_model.dart';
-// import 'package:apps_marketplace_integration_backend/features/order/presentation/pages/checkout_page.dart';
-// import 'package:apps_marketplace_integration_backend/features/order/presentation/pages/my_orders_page.dart';
-// import 'package:apps_marketplace_integration_backend/features/order/presentation/pages/order_success_page.dart';
-// import 'package:apps_marketplace_integration_backend/features/order/presentation/pages/payment_pending_page.dart';
+import 'package:apps_marketplace_integration_backend/features/order/data/models/order_model.dart';
+import 'package:apps_marketplace_integration_backend/features/order/presentation/pages/checkout_page.dart';
+import 'package:apps_marketplace_integration_backend/features/order/presentation/pages/my_orders_page.dart';
+import 'package:apps_marketplace_integration_backend/features/order/presentation/pages/order_success_page.dart';
+import 'package:apps_marketplace_integration_backend/features/order/presentation/pages/payment_pending_page.dart';
 import 'package:provider/provider.dart';
 
 class AppRouter {
