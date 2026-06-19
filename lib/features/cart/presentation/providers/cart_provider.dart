@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:pasar_malam/features/cart/data/models/cart_model.dart';
-import 'package:pasar_malam/features/cart/data/repositories/cart_repository_impl.dart';
-import 'package:pasar_malam/features/cart/domain/repositories/cart_repository.dart';
+import 'package:apps_marketplace_integration_backend/features/cart/data/models/cart_model.dart';
+import 'package:apps_marketplace_integration_backend/features/cart/data/repositories/cart_repository_impl.dart';
+import 'package:apps_marketplace_integration_backend/features/cart/domain/repositories/cart_repository.dart';
 
 enum CartStatus { initial, loading, loaded, error }
 
@@ -59,7 +59,9 @@ class CartProvider extends ChangeNotifier {
       notifyListeners();
       return true;
     } on DioException catch (e) {
-      _error = e.response?.data['message'] as String? ?? 'Gagal menambah ke keranjang';
+      _error =
+          e.response?.data['message'] as String? ??
+          'Gagal menambah ke keranjang';
       _isAdding = false;
       notifyListeners();
       return false;
@@ -105,7 +107,8 @@ class CartProvider extends ChangeNotifier {
       notifyListeners();
     } on DioException catch (e) {
       _setError(
-        e.response?.data['message'] as String? ?? 'Gagal mengosongkan keranjang',
+        e.response?.data['message'] as String? ??
+            'Gagal mengosongkan keranjang',
       );
     } catch (e) {
       _setError('Terjadi kesalahan: $e');
