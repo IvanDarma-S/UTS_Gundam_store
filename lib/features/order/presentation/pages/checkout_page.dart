@@ -21,8 +21,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
 
   static const List<_PaymentOption> _paymentOptions = [
     _PaymentOption(
-      value: 'global_institute_pay',
-      label: 'Global Institute Pay',
+      value: 'Gunpla_EWallet_Pay',
+      label: 'Gunpla E-Wallet',
       subtitle: 'Bayar via Dompet Kampus Global',
       icon: Icons.school_rounded,
       iconColor: Color(0xFF1A237E),
@@ -112,7 +112,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
       // Gunakan pilihan user — tidak bergantung pada nilai yang dikembalikan backend
       final needsPaymentFlow =
           _selectedPaymentMethod == 'virtual_account' ||
-          _selectedPaymentMethod == 'global_institute_pay';
+          _selectedPaymentMethod == 'Gunpla_EWallet_Pay';
 
       _log(' needsPaymentFlow = $needsPaymentFlow');
       _log('_selectedPaymentMethod = "$_selectedPaymentMethod"');
