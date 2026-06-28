@@ -39,6 +39,8 @@ dependencies:
   # Firebase dependencies
   firebase_core: ^4.6.0
   firebase_auth: ^6.3.0
+  firebase_messaging: ^16.1.3
+  flutter_local_notifications: ^18.0.0
   google_sign_in: ^6.2.0
   # HTTP client
   dio: ^5.9.2
@@ -47,11 +49,15 @@ dependencies:
   # Form validation
   equatable: ^2.0.8
   email_validator: ^3.0.0
-  flutter_svg: ^2.2.4
+  #flutter_svg: ^2.2.4
 
   # URL launcher for opening external links (e.g., privacy policy, terms of service)
   app_links: ^6.3.2
   url_launcher: ^6.3.1
+
+  # Biometric app lock — library lokal
+  flutter_biometric_kit:
+    path: flutter_biometric_kit
 
 dev_dependencies:
   flutter_test:
