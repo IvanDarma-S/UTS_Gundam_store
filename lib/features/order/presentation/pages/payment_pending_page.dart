@@ -715,7 +715,7 @@ class _GlobalInstitutePayBody extends StatelessWidget {
 
           const SizedBox(height: 28),
 
-          // ── Tombol buka Dompet Kampus Global ─────────────────
+          // ── Tombol buka Dompet ewallet ─────────────────
           SizedBox(
             width: double.infinity,
             child: ElevatedButton.icon(

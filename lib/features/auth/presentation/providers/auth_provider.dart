@@ -66,10 +66,17 @@ class AuthProvider extends ChangeNotifier {
     if (!(_firebaseUser?.emailVerified ?? false)) {
       // Belum klik link → kembali ke halaman verify
       _status = AuthStatus.emailNotVerified;
+      notifyListeners(); // Tambahkan ini agar UI tahu status ter-update
       return false;
     }
 
-    // STEP 2: Re-login untuk dapat fresh session & token
+    // 🔴 TAMBAHKAN PROTEKSI DI SINI
+    // Jika user ternyata login lewat Google (atau _tempEmail kosong), langsung bypass ke backend
+    if (_tempEmail == null || _tempPassword == null) {
+      return await _verifyTokenToBackend();
+    }
+
+    // STEP 2: Re-login untuk dapat fresh session & token (Hanya untuk Email & Password)
     final credential = await _auth.signInWithEmailAndPassword(
       email: _tempEmail!,
       password: _tempPassword!,
